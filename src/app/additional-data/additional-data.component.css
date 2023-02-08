@@ -1,0 +1,30 @@
+.container
+{
+    border:1px solid black;
+    height:100px;
+    width:500px;
+    border-radius: 10px;
+    
+    align-items: center;
+    margin:20px 0px;
+}
+.Drop-Down-list
+{
+    margin-left: 20px;
+    cursor: pointer;
+}
+.alert-red
+{
+    color:red;
+    text-align: center;
+    padding-top:10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.additional-data
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+    
+}

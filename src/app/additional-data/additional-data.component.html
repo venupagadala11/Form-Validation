@@ -1,0 +1,21 @@
+
+<div class="container">
+    <form  class="additional-data" [formGroup]="additionalDataValidation" >
+        <div class="styleLabel">
+            <label>Additional-Data: </label>
+            <input type="text" placeholder="enter Additional-Data" formControlName="dropDownData" (keyup.enter)="labelDataToApp()"/>
+        </div>
+        
+        <div class="dropDownStyle">
+            <select class="Drop-Down-list" formControlName="dropDownoptinalType">
+                <option [value]="'string'" selected>string</option>
+                <option [value]="'number'">number</option>
+                <option [value]="'boolean'">boolean</option>
+                <option [value]="'hexa-decimal'">Hexa-Decimal</option>
+                <option [value]="'binary'">Binary</option>
+                <option [value]="'color-code'">color-code</option>
+            </select>
+        </div>
+    </form>
+    <div *ngIf="!valid" class="alert-red">Enter selected option </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="main">
+    <h2>Registration Form</h2>
+  <div class="box">
+  
+  
+  
+        <form class="form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="first-name">First Name: </label>
+            <input id="first-name" type="text" formControlName="firstName" placeholder="Enter your firstname" >
+          </div>
+            <span *ngIf="firstName && firstName.invalid" class="alert-red">Invalid firstname</span>
+          
+          <div>
+            <label for="last-name">Last Name: </label>
+            <input id="last-name" type="text" formControlName="lastName" placeholder="Enter your Lastname">
+          </div>
+            <span *ngIf="lastName && lastName.invalid" class="alert-red">Invalid lastname</span>
+  
+          <div>
+            <label for="age">age: </label>
+            <input id="age" type="text"  formControlName="age" placeholder="Enter your age">
+          </div>
+            <span *ngIf="age && age.invalid" class="alert-red">Invalid age</span>
+
+          <div>
+            <label for="mobile">Mobile Number: </label>
+            <input id="mobile" type="text"  formControlName="mobileNumber" placeholder="Enter your mobile number">
+          </div>
+            <span *ngIf="mobileNumber && mobileNumber.invalid" class="alert-red">Invalid mobile number</span>
+
+          <div>
+            <label for="email" >Email: </label>
+            <input id="email" type="text" formControlName="email" placeholder="Enter your email id">
+          </div>
+          <span *ngIf="email && email.invalid" class="alert-red">Invalid email id</span>
+  
+          <div>
+            <label for="userName" >Username: </label>
+            <input id="userName" type="text" formControlName="userName" placeholder="Enter your username">
+          </div>
+          <span *ngIf="getUserName && getUserName.invalid" class="alert-red">Invalid username</span>
+  
+          <div>
+            <label>Additional-Data: </label>
+            <input type="text" placeholder="Enter additional data label" formControlName="additionalData">
+          </div>
+          <span *ngIf="additionalData && additionalData.invalid" class="alert-red">Invalid label data and label type</span>
+          <app-additional-data (labelDataToParent)="getLabelDataFromChild($event)"></app-additional-data>
+            <p><strong>Additional data label: </strong>{{additionalDataLabel}}</p>
+            <p><strong>Additional label Data: </strong>{{labelDataFromChild}}</p>
+  
+          <div>
+            <button class="bts1" type="reset">Reset</button>
+            <button class="bts2" type="submit">Submit</button> </div>
+        </form>
+  
+  </div>
+  
+  
+  
+  
+  
+  <!-- <form >
+    <h2>Regestration Form</h2>
+    <div class="box">
+        <div>First Name: <app-inputs [placeholderToInputs]="firstname" (childToParent)="validateFirstName($event)"></app-inputs></div>
+        <div>Last Name: <app-inputs [placeholderToInputs]="lastname" (childToParent)="validateLasttName($event)"></app-inputs></div>
+        <div>Age:<app-inputs [placeholderToInputs]="age" (childToParent)="validateAge($event)"></app-inputs></div>
+        <div>Mobile No:<app-inputs [placeholderToInputs]="mobileno" (childToParent)="validateMobileNumber($event)"></app-inputs></div>
+    </div>
+  </form> -->
+</div>
