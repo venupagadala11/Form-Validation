@@ -11,9 +11,11 @@ export class AdditionalDataComponent {
 @Output() labelDataToParent= new EventEmitter;
 
 
-
+// variable decleration
 valid:boolean=true;
 reference:string='';
+
+// form group and form control data
 additionalDataValidation =new FormGroup({
   dropDownData : new FormControl(""),
   dropDownoptinalType : new FormControl("")
@@ -23,17 +25,18 @@ additionalDataValidation =new FormGroup({
 
 labelDataToApp()
 {
+
+  // required pattetrns declerations and assined specific regex patterns
   let stringPattern = /^[A-Za-z]+$/;
   let numberPattern = /^[0-9]+$/;
   let booleanPattern = /^(?:tru|fals)e$/;
-  let colorCode = /^[#][a-z]$/;
-  let hexadecimalPattern = /^[0-9A-Fa-f]+$/;
+  let hexadecimalPattern = /^[#][0-9A-Fa-f]+$/;
   let binaryPattern = /^[0-1]+$/;
   let dropDownOption = this.additionalDataValidation.value.dropDownoptinalType;
   let labelData= this.additionalDataValidation.value.dropDownData;
 
     this.labelDataToParent.emit(labelData)
-  
+  // checking the label data type add store it i na reference 
   if (booleanPattern.test(labelData as string))
   {
       console.log('The value is a string.') ;
@@ -55,11 +58,9 @@ labelDataToApp()
   {
     this.reference = "hexa-decimal";
   } 
-  else if(colorCode.test(labelData as string))
-  {
-      this.reference = "color-code"
-  }
 console.log("drop",dropDownOption,this.reference)
+
+  // checking the types of both option and label data type and retrun value to the alert
   if (this.reference==dropDownOption)
   {
     this.valid = true;

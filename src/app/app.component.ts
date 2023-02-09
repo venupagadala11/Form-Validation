@@ -1,5 +1,6 @@
 import { Component, } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,18 +8,35 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 
+
+
 export class AppComponent {
+
+
+  // variables initialization 
   title = 'forms Validation';
+  sendData:any;
+  sendFirstName:string="siiitaa";
+  sendLastname:string='';
+  sendAge:number=0;
+  sendMobileNumber:number=0;
+  sendUserName:string='';
+  sendAdditionalDataLabel:string='';
+  sendLabelData:string='';
+  sendLabelOption='';
   labelDataFromChild:string="";
+
+  // creating a fromgroup to add form controls na dadded different validations to them
   profileForm = new FormGroup({
-    firstName: new FormControl('',Validators.compose([Validators.pattern("^[A-Z][a-z]*")])),
-    lastName: new FormControl('',Validators.compose([Validators.pattern("^[A-Z][a-z]*")])),
-    age: new FormControl('',Validators.compose([Validators.min(0),Validators.max(999),Validators.pattern("^[0-9]+$")])),
+    firstName: new FormControl('',Validators.compose([Validators.required,Validators.pattern("^[A-Z][a-z]*"),Validators.maxLength(256),Validators.minLength(3)])),
+    lastName: new FormControl('',Validators.compose([Validators.required,Validators.pattern("^[A-Z][a-z]*")])),
+    age: new FormControl('',Validators.compose([Validators.required,Validators.min(0),Validators.max(999),Validators.pattern("^[0-9]+$")])),
     mobileNumber: new FormControl('',Validators.compose([Validators.minLength(10),Validators.maxLength(10),Validators.pattern("^[0-9]+$")])),
-    email: new FormControl('',[Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]),
+    email: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]),
     userName : new FormControl('',[Validators.pattern("^[A-Za-z][A-Za-z0-9_]{7,29}$")]),
     additionalData : new FormControl('',[]),
   });
+
   
   additionalDataLabel:any|null;
   get firstName()
@@ -52,53 +70,33 @@ export class AppComponent {
   }
 
  
-
+  // assigning additional data label to a variable to send it to the common component
   get additionalData(){
   this.additionalDataLabel=this.profileForm.value.additionalData;
   return this.profileForm.get('additionalData')
 }
 
+// accessing label data from the common component
 getLabelDataFromChild(event:string)
 {
   this.labelDataFromChild=event;
 }
   
 
+constructor(private router: Router) {}
 
+  // sending complete form data to the display component along with the additional data and
+  //  navigating to the display component oon clicking the submit button
   onSubmit()
   {
-      console.log(this.profileForm)
+      console.log(this.profileForm); //console form data to verification on console
+      this.sendData = this.profileForm.value; 
+      this.router.navigate(['display'],{
+      state: { sendDataToDisplay : this.sendData, AdditionalValue : this.labelDataFromChild }
+  })
+
+ 
   }
 
-  constructor(){}
- 
-
-  // display:any;
-  // nameValidation(sample:any)
-  // {
-  //   this.display=this.sample;
-  // }
-  // firstname : string="first name";
-  // lastname:string="last name";
-  // age:string ="age";
-  // mobileno:string="Mobile Number";
-  // constructor(){}
-  
-  // validateFirstName(event:string):void
-  // {
-  //   console.log("Hi");
-  // }
-  // validateLasttName(event:string)
-  // {
-  //   console.log("Hi");
-  // }
-  // validateAge(event:number)
-  // {
-  //   console.log("j");
-  // }
-  // validateMobileNumber(event:number)
-  // {
-  //   console.log("Hi");
-  // }
 
 }

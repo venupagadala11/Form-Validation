@@ -1,0 +1,33 @@
+h3{
+    text-align: center;
+}
+.user-details-container
+{
+    display: flex;
+    justify-content: center;
+    padding-top:20px;
+}
+
+.strong
+{
+    font-weight: 500;
+    padding-bottom: 15px;
+    width:200px;
+}
+
+.display-data{
+    display: flex;
+    flex-direction: column;
+    width:500px;
+}
+ .display-data div
+{
+display: flex;
+justify-content: space-between;
+}
+ .main
+{
+    display: flex;
+    justify-content: center;
+
+} 
