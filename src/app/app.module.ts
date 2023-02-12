@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdditionalDataComponent } from './additional-data/additional-data.component';
 import { DispalyComponent } from './dispaly/dispaly.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { HttpClientModule  } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,11 +15,14 @@ import { DispalyComponent } from './dispaly/dispaly.component';
     AppComponent,
     AdditionalDataComponent,
     DispalyComponent,
+    RegistrationFormComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

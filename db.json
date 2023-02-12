@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+ "userDetails":[
+  {
+    "id": 1,
+    "firstName": "maya",
+    "lastName": "shetty",
+    "userName": "maya",
+    "age": 20,
+    "email": "maya@gmail.com",
+    "mobileNumber": "122876543"
+  }
+ ]
+}

@@ -1,17 +1,25 @@
 .container
 {
     border:1px solid black;
-    height:100px;
+    /* height:100px; */
     width:500px;
     border-radius: 10px;
-    
+   
     align-items: center;
-    margin:20px 0px;
+    
 }
-.Drop-Down-list
+.dataLabel
+{
+    display: flex;
+    justify-content: space-around;
+}
+.dropDownStyle
 {
     margin-left: 20px;
+    display: flex;
+    justify-content: space-around;
     cursor: pointer;
+    padding:10px 0px;
 }
 .alert-red
 {
@@ -22,9 +30,12 @@
 }
 .additional-data
 {
-    display: flex;
-    justify-content: space-around;
+    
     align-items: center;
     padding-top: 20px;
     
+}
+.dataDisplay
+{
+    padding-left:45px;
 }

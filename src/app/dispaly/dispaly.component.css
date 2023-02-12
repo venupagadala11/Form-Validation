@@ -17,13 +17,13 @@ h3{
 
 .display-data{
     display: flex;
-    flex-direction: column;
-    width:500px;
+   
 }
  .display-data div
 {
 display: flex;
-justify-content: space-between;
+/* justify-content: space-between; */
+min-width:50px;
 }
  .main
 {
@@ -31,3 +31,17 @@ justify-content: space-between;
     justify-content: center;
 
 } 
+.generalInfo{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border:1px solid ;
+    padding:0px 30px;
+}
+.additionalInfo{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border:1px solid;
+    padding: 0px 30px;
+}
