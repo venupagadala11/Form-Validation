@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormServiceService } from '../form-service.service';
 
 @Component({
   selector: 'app-registration-form',
@@ -70,7 +71,7 @@ export class RegistrationFormComponent {
   get additionalData(){
   // this.additionalDataLabel.push(this.profileForm.value.additionalData);
   this.sendLabelToAdditionalComponent=this.profileForm.value.additionalData as string;
-  return this.profileForm.get('additionalData')
+  return this.profileForm.get('additionalData');
   console.log("label")
 }
 
@@ -80,7 +81,7 @@ getLabelDataFromChild(event:string)
   this.labelDataFromChild=event;
 }
 
-constructor(private router: Router) {}
+constructor(private router: Router, private service: FormServiceService) {}
 
   // sending complete form data to the display component along with the additional data and
   //  navigating to the display component oon clicking the submit button
@@ -90,7 +91,13 @@ constructor(private router: Router) {}
       this.sendData = this.profileForm.value; 
       this.router.navigate(['display'],{
       state: { sendDataToDisplay : this.sendData, AdditionalValue : this.labelDataFromChild }
+      
+
   })
+
+  this.service.saveUserDetails(this.sendData).subscribe((data: any) => {
+    console.log(data.firstName);
+  });
 
   }
   fun(){

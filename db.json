@@ -6,15 +6,35 @@
       "author": "typicode"
     }
   ],
- "userDetails":[
-  {
-    "id": 1,
-    "firstName": "maya",
-    "lastName": "shetty",
-    "userName": "maya",
-    "age": 20,
-    "email": "maya@gmail.com",
-    "mobileNumber": "122876543"
-  }
- ]
+  "userDetails": [
+    {
+      "id": 1,
+      "firstName": "maya",
+      "lastName": "shetty",
+      "userName": "maya",
+      "age": 20,
+      "email": "maya@gmail.com",
+      "mobileNumber": "122876543"
+    },
+    {
+      "firstName": "aqsw",
+      "lastName": "sjdf",
+      "age": "1",
+      "mobileNumber": "0134567890",
+      "email": "venu@diav.com",
+      "userName": "Venu_paga",
+      "additionalData": "",
+      "id": 2
+    },
+    {
+      "firstName": "aqsw",
+      "lastName": "sjdf",
+      "age": "",
+      "mobileNumber": "0134567890",
+      "email": "venu@diav.com",
+      "userName": "",
+      "additionalData": "",
+      "id": 3
+    }
+  ]
 }
