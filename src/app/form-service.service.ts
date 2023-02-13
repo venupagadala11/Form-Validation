@@ -9,8 +9,8 @@ export class FormServiceService {
 
   dataURL:string='';
 
-  constructor(private http:HttpClient) {
-
+  constructor(private http:HttpClient)
+   {
     this.dataURL="http://localhost:3000/userDetails/";
    }
 
@@ -20,13 +20,18 @@ export class FormServiceService {
   {
     this.additionalDetails.push(data);
   }
-  // postDataFromService(data:any) : Observable<any>{
-  //   return this.http.post<any>(this.dataURL,this.data);
-  //  }
+  
+  userDetails(data:any):Observable<any>
+  {
+    console.log("service",data.id);
+    return this.http.post(this.dataURL,data); 
+  }
 
-   saveUserDetails(data:any):Observable<any>{
-    return this.http.post(this.dataURL,data);
+  getUsers(): Observable<any>
+   {
+    return this.http.get(this.dataURL+"/"+2);
   }
   
 
+  
 }

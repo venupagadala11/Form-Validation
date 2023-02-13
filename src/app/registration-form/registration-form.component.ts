@@ -22,12 +22,14 @@ export class RegistrationFormComponent {
   labelDataFromChild:string="";
   arr:any=[1];
   sendLabelToAdditionalComponent:string='';
+  dataId:number=1;
 
   // creating a fromgroup to add form controls na dadded different validations to them
   profileForm = new FormGroup({
     firstName: new FormControl('',Validators.compose([Validators.pattern("^[A-Za-z]+"),Validators.maxLength(256),Validators.minLength(3)])),
     lastName: new FormControl('',Validators.compose([Validators.pattern("^[A-Za-z]+")])),
     age: new FormControl('',Validators.compose([Validators.required,Validators.min(0),Validators.max(999),Validators.pattern("^[0-9]+$")])),
+
     mobileNumber: new FormControl('',Validators.compose([Validators.minLength(10),Validators.maxLength(10),Validators.pattern("^[0-9]+$")])),
     email: new FormControl('',[Validators.required,Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]),
     userName : new FormControl('',[Validators.pattern("^[A-Za-z][A-Za-z0-9_]{7,29}$")]),
@@ -81,7 +83,7 @@ getLabelDataFromChild(event:string)
   this.labelDataFromChild=event;
 }
 
-constructor(private router: Router, private service: FormServiceService) {}
+constructor(private router: Router, private formService: FormServiceService) {}
 
   // sending complete form data to the display component along with the additional data and
   //  navigating to the display component oon clicking the submit button
@@ -90,13 +92,16 @@ constructor(private router: Router, private service: FormServiceService) {}
       console.log(this.profileForm); //console form data to verification on console
       this.sendData = this.profileForm.value; 
       this.router.navigate(['display'],{
-      state: { sendDataToDisplay : this.sendData, AdditionalValue : this.labelDataFromChild }
+      state: { sendDataToDisplay : this.sendData, id : this.dataId }
       
 
   })
 
-  this.service.saveUserDetails(this.sendData).subscribe((data: any) => {
-    console.log(data.firstName);
+  this.formService.userDetails(this.sendData).subscribe((data: any) => {
+    console.log("Subscribe id",data.id);
+    this.dataId=data.id;
+
+
   });
 
   }

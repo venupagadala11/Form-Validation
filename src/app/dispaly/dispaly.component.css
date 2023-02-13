@@ -38,9 +38,12 @@ min-width:50px;
     border:1px solid ;
     padding:0px 30px;
 }
+.generalInfo div{
+    margin-top: 10px;
+}
 .additionalInfo{
     display: flex;
-    justify-content: space-between;
+    
     flex-direction: column;
     border:1px solid;
     padding: 0px 30px;

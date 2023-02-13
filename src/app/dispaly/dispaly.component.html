@@ -9,18 +9,19 @@
     <!-- display all from control data on the UI -->
        <div class="display-data">
            <div class="generalInfo">
-               <div ><span class="strong">FirstName:</span><span class="line">{{dataToDisplay.firstName}} </span></div>
-               <div ><span class="strong">LastName: </span><span class="line">{{dataToDisplay.lastName}} </span></div>
-               <div ><span class="strong">Age: </span><span class="line">{{dataToDisplay.age}}</span></div>
-               <div ><span class="strong">Mail id: </span><span class="line">{{dataToDisplay.email}}</span></div>
-               <div ><span class="strong">Mobile Number: </span><span class="line">{{dataToDisplay.mobileNumber}}</span> </div>
-               <div ><span class="strong">UserName: </span><span class="line">{{dataToDisplay.userName}} </span></div>
+               <div ><strong>FirstName:</strong><span class="line">{{dataToDisplay.firstName}} </span></div>
+               <div ><strong>LastName: </strong><span class="line">{{dataToDisplay.lastName}} </span></div>
+               <div ><strong>Age: </strong><span class="line">{{dataToDisplay.age}}</span></div>
+               <div ><strong>Mail id: </strong><span class="line">{{dataToDisplay.email}}</span></div>
+               <div ><strong>Mobile Number: </strong><span class="line">{{dataToDisplay.mobileNumber}}</span> </div>
+               <div ><strong>UserName: </strong><span class="line">{{dataToDisplay.userName}} </span></div>
            </div>
            <div class="additionalInfo">
-               <!-- <div ><span class="strong">additional data label: </span><span class="line">{{dataToDisplay.additionalData}} </span></div>
-               <div ><span class="strong">Additional data: </span><span class="line">{{labelData}} </span></div> -->
+            <h2>Additional Info</h2>
+               <!-- <div ><span>additional data label: </span><span class="line">{{dataToDisplay.additionalData}} </span></div>
+               <div ><span>Additional data: </span><span class="line">{{labelData}} </span></div> -->
                <div *ngFor="let item of userAdditionalData">
-                {{item.dataLabel}} : {{item.labelData}}
+                <strong>{{item.dataLabel}} :</strong> {{item.labelData}}
                </div>
            </div>
        </div>
